@@ -23,8 +23,8 @@ Incluye verificación de errores, corrección automática y progreso visual.
 
 ## 📥 **Instalación**  
 ```bash
-git clone https://github.com/tu-usuario/Scripts-Útiles.git
-cd Scripts-Útiles
+git clone https://github.com/appscuba/Scripts.git
+cd Scripts
 chmod +x *.sh
 ```
 
