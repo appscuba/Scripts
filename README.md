@@ -26,6 +26,7 @@ Incluye verificación de errores, corrección automática y progreso visual.
 git clone https://github.com/appscuba/Scripts.git
 cd Scripts
 chmod +x *.sh
+## Ejecutamos *sudo ./post-clone.sh*
 ```
 
 ---
