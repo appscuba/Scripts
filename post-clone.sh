@@ -1,26 +1,51 @@
 #!/bin/bash
 
-# Verificar permisos de ejecución
-if [ ! -x "$0" ]; then
-    echo "⚠️ Ejecuta este script con sudo: sudo ./$0"
-    exit 1
-fi
+# Función para mostrar progreso
+show_progress() {
+    while read -r line; do
+        case $line in
+            *[Pp]rogress*)
+                percent=$(echo "$line" | grep -oE '[0-9]+%')
+                printf "\r🚀 Progreso: %-10s" "$percent"
+                ;;
+            *[Ee]rror*)
+                printf "\n❌ Error: %s\n" "$line"
+                exit 1
+                ;;
+            *[Cc]ompletado*)
+                printf "\r✅ Proceso completado!    \n"
+                ;;
+        esac
+    done
+}
 
-# Mostrar menú de opciones
-echo -e "\n🌟 **Scripts disponibles en este proyecto:**"
+# Menú principal
+echo -e "\n🔧 Scripts de instalación disponibles:"
 echo "-----------------------------------------------"
-echo "1. 🌐 **Instalar Nextcloud** (automatizado)"
-echo "2. 📁 **Configurar herramientas de red**"
-echo "3. 📊 **Analizar uso de disco**"
-echo "4. 🛠️ **Verificar dependencias**"
+echo "1. 🌐 Nextcloud (Almacenamiento en la nube)"
+echo "2. 🛡️ WireGuard (VPN segura)"
+echo "3. 🐧 Utilerías Linux"
 echo "-----------------------------------------------"
 
-read -p "👉 ¿Qué script deseas ejecutar? (1-4): " opcion
+read -p "👉 Seleccione una opción (1-3): " option
 
-case $opcion in
-    1) ./install_nextcloud.sh ;;
-    2) ./config_red.sh ;;
-    3) ./disk_usage.sh ;;
-    4) ./check_dependencies.sh ;;
-    *) echo "❌ Opción inválida"; exit 1 ;;
+case $option in
+    1)
+        echo -e "\n📥 Iniciando instalación de Nextcloud..."
+        source ./scripts/install_nextcloud.sh | show_progress
+        ;;
+    2)
+        echo -e "\n📡 Iniciando instalación de WireGuard..."
+        source ./scripts/install_wireguard.sh | show_progress
+        ;;
+    3)
+        echo -e "\n🔧 Instalando utilerías del sistema..."
+        source ./scripts/install_utils.sh | show_progress
+        ;;
+    *)
+        echo "❌ Opción inválida"
+        exit 1
+        ;;
 esac
+
+echo -e "\n✨ ¡Instalación finalizada! Verifique los logs en /var/log/installer.log"
