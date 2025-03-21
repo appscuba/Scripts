@@ -60,7 +60,7 @@ sudo ./install_nextcloud.sh
 
 **🌟 ¡Gracias por usar nuestros scripts!**  
 **📢 ¿Necesitas ayuda?**  
-Visita [nuestro canal de soporte](https://ejemplo.com) o escribe un *issue*.  
+Visita [nuestro canal de soporte](https://t.me/TV_PedritoTech) o escribe un *issue*.  
 
 ---
 
@@ -79,7 +79,7 @@ Visita [nuestro canal de soporte](https://ejemplo.com) o escribe un *issue*.
 --- 
 
 **🌟 ¡Contribuye y comparte!**  
-**🔗 [Enlace al repositorio](https://github.com/tu-usuario/Scripts-Útiles)**  
+**🔗 [Enlace al repositorio](https://github.com/appscuba/Scripts)**
 
 --- 
 
